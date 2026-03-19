@@ -1,0 +1,276 @@
+<mxfile host="app.diagrams.net" modified="2026-03-18T12:00:00.000Z" agent="Claude" version="24.0.0" type="device">
+  <diagram id="legaltech-topology" name="LegalTech AI — Topologia">
+    <mxGraphModel dx="1800" dy="1200" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1920" pageHeight="1080" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- ==================== TITLE ==================== -->
+        <mxCell id="title" value="&lt;b&gt;LegalTech AI — Arquitetura de Produção&lt;/b&gt;&lt;br&gt;AWS us-east-1 | Account 005200801295" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;fillColor=none;fontSize=18;" vertex="1" parent="1">
+          <mxGeometry x="660" y="15" width="600" height="50" as="geometry" />
+        </mxCell>
+
+        <!-- ==================== CLIENTS (Left) ==================== -->
+        <mxCell id="clients-group" value="Clientes" style="swimlane;startSize=25;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=14;fontStyle=1;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="30" y="100" width="200" height="380" as="geometry" />
+        </mxCell>
+
+        <mxCell id="browser" value="&lt;b&gt;Web App&lt;/b&gt;&lt;br&gt;Next.js 15&lt;br&gt;React 18 + TS&lt;br&gt;TailwindCSS&lt;br&gt;shadcn/ui" style="shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.client;labelBackgroundColor=#ffffff;sketch=0;fontStyle=0;fontSize=11;align=center;html=1;" vertex="1" parent="clients-group">
+          <mxGeometry x="50" y="40" width="100" height="90" as="geometry" />
+        </mxCell>
+
+        <mxCell id="mobile" value="&lt;b&gt;Mobile App&lt;/b&gt;&lt;br&gt;Flutter 3.29&lt;br&gt;Dart + Riverpod&lt;br&gt;GoRouter 17" style="shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.mobile_client;labelBackgroundColor=#ffffff;sketch=0;fontStyle=0;fontSize=11;align=center;html=1;" vertex="1" parent="clients-group">
+          <mxGeometry x="50" y="155" width="100" height="90" as="geometry" />
+        </mxCell>
+
+        <mxCell id="webpki" value="&lt;b&gt;Lacuna Web PKI&lt;/b&gt;&lt;br&gt;Certificado A3&lt;br&gt;Token USB/Cartão&lt;br&gt;ICP-Brasil" style="shape=hexagon;perimeter=hexagonPerimeter2;size=0.25;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=10;html=1;align=center;" vertex="1" parent="clients-group">
+          <mxGeometry x="30" y="275" width="140" height="80" as="geometry" />
+        </mxCell>
+
+        <!-- ==================== AWS CLOUD ==================== -->
+        <mxCell id="aws-cloud" value="AWS Cloud (us-east-1)" style="points=[[0,0],[0.25,0],[0.5,0],[0.75,0],[1,0],[1,0.25],[1,0.5],[1,0.75],[1,1],[0.75,1],[0.5,1],[0.25,1],[0,1],[0,0.75],[0,0.5],[0,0.25]];outlineConnect=0;gradientColor=none;html=1;whiteSpace=wrap;fontSize=14;fontStyle=1;shape=mxgraph.aws4.group;grIcon=mxgraph.aws4.group_aws_cloud;strokeColor=#232F3E;fillColor=none;verticalAlign=top;align=left;spacingLeft=30;spacingTop=5;dashed=0;" vertex="1" parent="1">
+          <mxGeometry x="280" y="80" width="1300" height="650" as="geometry" />
+        </mxCell>
+
+        <!-- CDN Layer -->
+        <mxCell id="cloudfront" value="&lt;b&gt;CloudFront&lt;/b&gt;&lt;br&gt;E3O5H1CWLG8H2G&lt;br&gt;legaltech.tecnoepec.com.br" style="outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=#8C4FFF;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=10;fontStyle=0;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.cloudfront;" vertex="1" parent="1">
+          <mxGeometry x="340" y="130" width="60" height="60" as="geometry" />
+        </mxCell>
+
+        <mxCell id="s3-web" value="&lt;b&gt;S3&lt;/b&gt;&lt;br&gt;legaltech-web&lt;br&gt;(Static Export)" style="outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=#3F8624;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=10;fontStyle=0;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.s3;" vertex="1" parent="1">
+          <mxGeometry x="340" y="270" width="60" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- API Gateway -->
+        <mxCell id="apigw" value="&lt;b&gt;API Gateway&lt;/b&gt;&lt;br&gt;REST (i17m1qddq4)&lt;br&gt;legaltech-api.tecnoepec.com.br&lt;br&gt;/api/* /docs/* /ai/*" style="outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=#E7157B;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=10;fontStyle=0;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.api_gateway;" vertex="1" parent="1">
+          <mxGeometry x="500" y="130" width="60" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- Cognito -->
+        <mxCell id="cognito" value="&lt;b&gt;Cognito&lt;/b&gt;&lt;br&gt;User Pool&lt;br&gt;JWT / SRP" style="outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=#DD344C;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=10;fontStyle=0;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.cognito;" vertex="1" parent="1">
+          <mxGeometry x="500" y="270" width="60" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- VPC -->
+        <mxCell id="vpc" value="VPC (10.10.6.0/23)" style="points=[[0,0],[0.25,0],[0.5,0],[0.75,0],[1,0],[1,0.25],[1,0.5],[1,0.75],[1,1],[0.75,1],[0.5,1],[0.25,1],[0,1],[0,0.75],[0,0.5],[0,0.25]];outlineConnect=0;gradientColor=none;html=1;whiteSpace=wrap;fontSize=12;fontStyle=1;shape=mxgraph.aws4.group;grIcon=mxgraph.aws4.group_vpc;strokeColor=#248814;fillColor=none;verticalAlign=top;align=left;spacingLeft=30;spacingTop=5;dashed=0;" vertex="1" parent="1">
+          <mxGeometry x="620" y="110" width="640" height="400" as="geometry" />
+        </mxCell>
+
+        <!-- NLB -->
+        <mxCell id="nlb" value="&lt;b&gt;NLB&lt;/b&gt;&lt;br&gt;(internal)&lt;br&gt;VPC Link" style="outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=#8C4FFF;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=10;fontStyle=0;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.network_load_balancer;" vertex="1" parent="1">
+          <mxGeometry x="660" y="220" width="50" height="50" as="geometry" />
+        </mxCell>
+
+        <!-- ECS Cluster -->
+        <mxCell id="ecs-cluster" value="ECS Cluster &quot;main&quot; (Fargate SPOT)" style="points=[[0,0],[0.25,0],[0.5,0],[0.75,0],[1,0],[1,0.25],[1,0.5],[1,0.75],[1,1],[0.75,1],[0.5,1],[0.25,1],[0,1],[0,0.75],[0,0.5],[0,0.25]];outlineConnect=0;gradientColor=none;html=1;whiteSpace=wrap;fontSize=11;fontStyle=1;shape=mxgraph.aws4.group;grIcon=mxgraph.aws4.group_ecs_cluster;strokeColor=#D86613;fillColor=none;verticalAlign=top;align=left;spacingLeft=30;spacingTop=5;dashed=0;" vertex="1" parent="1">
+          <mxGeometry x="750" y="130" width="490" height="240" as="geometry" />
+        </mxCell>
+
+        <!-- ECS Services -->
+        <mxCell id="api-core" value="&lt;b&gt;api-core&lt;/b&gt;&lt;br&gt;:8000&lt;br&gt;27 routers&lt;br&gt;FastAPI" style="outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=#D86613;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=10;fontStyle=0;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.ecs_task;" vertex="1" parent="1">
+          <mxGeometry x="780" y="175" width="55" height="55" as="geometry" />
+        </mxCell>
+
+        <mxCell id="doc-service" value="&lt;b&gt;doc-service&lt;/b&gt;&lt;br&gt;:8001&lt;br&gt;Upload/S3&lt;br&gt;OCR/Textract" style="outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=#D86613;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=10;fontStyle=0;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.ecs_task;" vertex="1" parent="1">
+          <mxGeometry x="890" y="175" width="55" height="55" as="geometry" />
+        </mxCell>
+
+        <mxCell id="ai-service" value="&lt;b&gt;ai-service&lt;/b&gt;&lt;br&gt;:8002&lt;br&gt;RAG/Bedrock&lt;br&gt;Claude 3.5" style="outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=#D86613;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=10;fontStyle=0;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.ecs_task;" vertex="1" parent="1">
+          <mxGeometry x="1000" y="175" width="55" height="55" as="geometry" />
+        </mxCell>
+
+        <mxCell id="worker" value="&lt;b&gt;worker&lt;/b&gt;&lt;br&gt;SQS Consumer&lt;br&gt;19 job types&lt;br&gt;Crawlers" style="outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=#D86613;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=10;fontStyle=0;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.ecs_task;" vertex="1" parent="1">
+          <mxGeometry x="1110" y="175" width="55" height="55" as="geometry" />
+        </mxCell>
+
+        <!-- Shared module label -->
+        <mxCell id="shared-label" value="Python 3.13 | SQLAlchemy 2.0 | Pydantic v2 | shared/ module (33 models, 24 migrations)" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=#D86613;fillColor=#FFF2CC;fontSize=9;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="785" y="315" width="420" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- Database Layer -->
+        <mxCell id="aurora" value="&lt;b&gt;Aurora PostgreSQL 16&lt;/b&gt;&lt;br&gt;+ pgvector&lt;br&gt;33 tables&lt;br&gt;Embeddings 1024d" style="outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=#C925D1;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=10;fontStyle=0;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.aurora_instance;" vertex="1" parent="1">
+          <mxGeometry x="780" y="410" width="55" height="55" as="geometry" />
+        </mxCell>
+
+        <mxCell id="redis" value="&lt;b&gt;ElastiCache&lt;/b&gt;&lt;br&gt;Redis 7&lt;br&gt;Pub/Sub SSE&lt;br&gt;Rate Limit" style="outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=#C925D1;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=10;fontStyle=0;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.elasticache_cache_node;" vertex="1" parent="1">
+          <mxGeometry x="910" y="410" width="55" height="55" as="geometry" />
+        </mxCell>
+
+        <!-- SQS -->
+        <mxCell id="sqs" value="&lt;b&gt;SQS FIFO&lt;/b&gt;&lt;br&gt;Job Queue&lt;br&gt;19 job types" style="outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=#E7157B;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=10;fontStyle=0;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.sqs;" vertex="1" parent="1">
+          <mxGeometry x="1040" y="410" width="55" height="55" as="geometry" />
+        </mxCell>
+
+        <!-- S3 Buckets -->
+        <mxCell id="s3-docs" value="&lt;b&gt;S3 Buckets&lt;/b&gt;&lt;br&gt;inbox / docs&lt;br&gt;exports / transcripts" style="outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=#3F8624;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=10;fontStyle=0;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.s3;" vertex="1" parent="1">
+          <mxGeometry x="1160" y="410" width="55" height="55" as="geometry" />
+        </mxCell>
+
+        <!-- ==================== AWS AI SERVICES (Right) ==================== -->
+        <mxCell id="ai-group" value="AWS AI Services" style="swimlane;startSize=25;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=12;fontStyle=1;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="1320" y="110" width="230" height="250" as="geometry" />
+        </mxCell>
+
+        <mxCell id="bedrock" value="&lt;b&gt;Bedrock&lt;/b&gt;&lt;br&gt;Claude 3.5 Sonnet&lt;br&gt;Titan Embed (1024d)" style="outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=#01A88D;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=10;fontStyle=0;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.sagemaker_model;" vertex="1" parent="ai-group">
+          <mxGeometry x="85" y="35" width="55" height="55" as="geometry" />
+        </mxCell>
+
+        <mxCell id="textract" value="&lt;b&gt;Textract&lt;/b&gt;&lt;br&gt;OCR" style="outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=#01A88D;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=10;fontStyle=0;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.textract;" vertex="1" parent="ai-group">
+          <mxGeometry x="25" y="140" width="50" height="50" as="geometry" />
+        </mxCell>
+
+        <mxCell id="transcribe" value="&lt;b&gt;Transcribe&lt;/b&gt;&lt;br&gt;Áudio → Texto" style="outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=#01A88D;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=10;fontStyle=0;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.transcribe;" vertex="1" parent="ai-group">
+          <mxGeometry x="145" y="140" width="50" height="50" as="geometry" />
+        </mxCell>
+
+        <!-- ==================== EXTERNAL SERVICES (Bottom) ==================== -->
+        <mxCell id="ext-group" value="Serviços Externos" style="swimlane;startSize=25;fillColor=#f8cecc;strokeColor=#b85450;fontSize=12;fontStyle=1;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="300" y="560" width="950" height="170" as="geometry" />
+        </mxCell>
+
+        <mxCell id="asaas" value="&lt;b&gt;Asaas&lt;/b&gt;&lt;br&gt;Billing&lt;br&gt;Boleto/PIX&lt;br&gt;Webhook" style="shape=ellipse;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=10;html=1;align=center;" vertex="1" parent="ext-group">
+          <mxGeometry x="20" y="40" width="110" height="70" as="geometry" />
+        </mxCell>
+
+        <mxCell id="meta-wa" value="&lt;b&gt;Meta&lt;/b&gt;&lt;br&gt;WhatsApp&lt;br&gt;Cloud API" style="shape=ellipse;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=10;html=1;align=center;" vertex="1" parent="ext-group">
+          <mxGeometry x="155" y="40" width="110" height="70" as="geometry" />
+        </mxCell>
+
+        <mxCell id="firebase" value="&lt;b&gt;Firebase&lt;/b&gt;&lt;br&gt;FCM Push&lt;br&gt;Notifications" style="shape=ellipse;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=10;html=1;align=center;" vertex="1" parent="ext-group">
+          <mxGeometry x="290" y="40" width="110" height="70" as="geometry" />
+        </mxCell>
+
+        <mxCell id="ses" value="&lt;b&gt;AWS SES&lt;/b&gt;&lt;br&gt;Email&lt;br&gt;Transacional" style="shape=ellipse;fillColor=#dae8fc;strokeColor=#6c8ebf;fontSize=10;html=1;align=center;" vertex="1" parent="ext-group">
+          <mxGeometry x="425" y="40" width="110" height="70" as="geometry" />
+        </mxCell>
+
+        <mxCell id="tribunais" value="&lt;b&gt;Tribunais&lt;/b&gt;&lt;br&gt;eSAJ / PJe&lt;br&gt;eProc / DataJud" style="shape=ellipse;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=10;html=1;align=center;" vertex="1" parent="ext-group">
+          <mxGeometry x="560" y="40" width="110" height="70" as="geometry" />
+        </mxCell>
+
+        <mxCell id="legislativo" value="&lt;b&gt;APIs Legislativas&lt;/b&gt;&lt;br&gt;Câmara / Senado&lt;br&gt;DOU / LeXML" style="shape=ellipse;fillColor=#e1d5e7;strokeColor=#9673a6;fontSize=10;html=1;align=center;" vertex="1" parent="ext-group">
+          <mxGeometry x="695" y="40" width="110" height="70" as="geometry" />
+        </mxCell>
+
+        <mxCell id="lacuna" value="&lt;b&gt;Lacuna&lt;/b&gt;&lt;br&gt;Web PKI&lt;br&gt;ICP-Brasil" style="shape=ellipse;fillColor=#fff2cc;strokeColor=#d6b656;fontSize=10;html=1;align=center;" vertex="1" parent="ext-group">
+          <mxGeometry x="825" y="40" width="100" height="70" as="geometry" />
+        </mxCell>
+
+        <!-- ==================== CI/CD (Top Right) ==================== -->
+        <mxCell id="cicd-group" value="CI/CD" style="swimlane;startSize=25;fillColor=#d5e8d4;strokeColor=#82b366;fontSize=12;fontStyle=1;rounded=1;" vertex="1" parent="1">
+          <mxGeometry x="1320" y="400" width="230" height="150" as="geometry" />
+        </mxCell>
+
+        <mxCell id="github" value="&lt;b&gt;GitHub Actions&lt;/b&gt;&lt;br&gt;GrupoJLM org&lt;br&gt;CI + Security Scan&lt;br&gt;→ ECR → ECS Deploy&lt;br&gt;→ S3 + CloudFront" style="shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.general_SDK;fontStyle=0;fontSize=10;html=1;align=center;labelBackgroundColor=none;" vertex="1" parent="cicd-group">
+          <mxGeometry x="55" y="35" width="110" height="90" as="geometry" />
+        </mxCell>
+
+        <!-- ==================== CONNECTIONS ==================== -->
+
+        <!-- Browser → CloudFront -->
+        <mxCell id="conn1" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeWidth=2;strokeColor=#6c8ebf;" edge="1" source="browser" target="cloudfront" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="conn1-label" value="HTTPS" style="edgeLabel;html=1;align=center;fontSize=9;fillColor=#dae8fc;strokeColor=#6c8ebf;rounded=1;" vertex="1" connectable="0" parent="conn1">
+          <mxGeometry x="-0.2" relative="1" as="geometry"><mxPoint as="offset" /></mxGeometry>
+        </mxCell>
+
+        <!-- Browser → API GW -->
+        <mxCell id="conn2" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeWidth=2;strokeColor=#E7157B;" edge="1" source="browser" target="apigw" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="conn2-label" value="REST API" style="edgeLabel;html=1;align=center;fontSize=9;fillColor=#f8cecc;strokeColor=#b85450;rounded=1;" vertex="1" connectable="0" parent="conn2">
+          <mxGeometry x="-0.2" relative="1" as="geometry"><mxPoint as="offset" /></mxGeometry>
+        </mxCell>
+
+        <!-- Mobile → API GW -->
+        <mxCell id="conn3" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeWidth=2;strokeColor=#E7157B;" edge="1" source="mobile" target="apigw" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Mobile → Cognito -->
+        <mxCell id="conn4" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeWidth=1;strokeColor=#DD344C;dashed=1;" edge="1" source="mobile" target="cognito" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="conn4-label" value="PKCE" style="edgeLabel;html=1;align=center;fontSize=8;" vertex="1" connectable="0" parent="conn4">
+          <mxGeometry relative="1" as="geometry"><mxPoint as="offset" /></mxGeometry>
+        </mxCell>
+
+        <!-- CloudFront → S3 Web -->
+        <mxCell id="conn5" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeWidth=2;strokeColor=#3F8624;" edge="1" source="cloudfront" target="s3-web" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="conn5-label" value="OAC" style="edgeLabel;html=1;align=center;fontSize=8;" vertex="1" connectable="0" parent="conn5">
+          <mxGeometry relative="1" as="geometry"><mxPoint as="offset" /></mxGeometry>
+        </mxCell>
+
+        <!-- API GW → NLB -->
+        <mxCell id="conn6" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeWidth=2;strokeColor=#8C4FFF;" edge="1" source="apigw" target="nlb" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="conn6-label" value="VPC Link" style="edgeLabel;html=1;align=center;fontSize=9;fillColor=#E6D0DE;rounded=1;" vertex="1" connectable="0" parent="conn6">
+          <mxGeometry relative="1" as="geometry"><mxPoint as="offset" /></mxGeometry>
+        </mxCell>
+
+        <!-- NLB → ECS Services -->
+        <mxCell id="conn7" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeWidth=1.5;strokeColor=#D86613;" edge="1" source="nlb" target="api-core" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="conn8" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeWidth=1.5;strokeColor=#D86613;" edge="1" source="nlb" target="doc-service" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="conn9" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeWidth=1.5;strokeColor=#D86613;" edge="1" source="nlb" target="ai-service" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- ECS → Database -->
+        <mxCell id="conn10" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeWidth=1.5;strokeColor=#C925D1;" edge="1" source="api-core" target="aurora" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="conn11" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeWidth=1;strokeColor=#C925D1;dashed=1;" edge="1" source="api-core" target="redis" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Worker → SQS -->
+        <mxCell id="conn12" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeWidth=2;strokeColor=#E7157B;" edge="1" source="worker" target="sqs" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="conn12-label" value="Poll" style="edgeLabel;html=1;align=center;fontSize=8;" vertex="1" connectable="0" parent="conn12">
+          <mxGeometry relative="1" as="geometry"><mxPoint as="offset" /></mxGeometry>
+        </mxCell>
+
+        <!-- Worker → Aurora -->
+        <mxCell id="conn13" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeWidth=1;strokeColor=#C925D1;dashed=1;" edge="1" source="worker" target="aurora" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Worker → S3 -->
+        <mxCell id="conn14" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeWidth=1;strokeColor=#3F8624;dashed=1;" edge="1" source="worker" target="s3-docs" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- doc-service → S3 -->
+        <mxCell id="conn15" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeWidth=1.5;strokeColor=#3F8624;" edge="1" source="doc-service" target="s3-docs" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- ai-service → Bedrock -->
+        <mxCell id="conn16" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeWidth=2;strokeColor=#01A88D;" edge="1" source="ai-service" target="bedrock" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- WebPKI → Browser -->
+        <mxCell id="conn17" style="edgeStyle=orthogonalEdgeStyle;rounded=1;strokeWidth=1;strokeColor=#d6b656;dashed=1;" edge="1" source="webpki" target="browser" parent="1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- ==================== LEGEND ==================== -->
+        <mxCell id="legend" value="&lt;b&gt;Legenda&lt;/b&gt;&lt;br&gt;→ Fluxo de dados&lt;br&gt;⤑ Conexão async/eventual&lt;br&gt;&lt;br&gt;&lt;b&gt;Domínios:&lt;/b&gt;&lt;br&gt;Web: legaltech.tecnoepec.com.br&lt;br&gt;API: legaltech-api.tecnoepec.com.br&lt;br&gt;&lt;br&gt;&lt;b&gt;Stacks:&lt;/b&gt;&lt;br&gt;Backend: Python 3.13 + FastAPI&lt;br&gt;Frontend: Next.js 15 + React 18&lt;br&gt;Mobile: Flutter 3.29 + Dart&lt;br&gt;DB: PostgreSQL 16 + pgvector&lt;br&gt;AI: Claude 3.5 via Bedrock" style="text;html=1;align=left;verticalAlign=top;fillColor=#f5f5f5;strokeColor=#666666;fontSize=10;rounded=1;spacingLeft=8;spacingTop=5;" vertex="1" parent="1">
+          <mxGeometry x="30" y="520" width="230" height="210" as="geometry" />
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
