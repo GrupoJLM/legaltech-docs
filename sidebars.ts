@@ -42,6 +42,13 @@ const sidebars: SidebarsConfig = {
     },
     {
       type: 'category',
+      label: 'Guias',
+      items: [
+        'guias/certificados-digitais',
+      ],
+    },
+    {
+      type: 'category',
       label: 'Contribuição',
       items: [
         'contributing/getting-started',

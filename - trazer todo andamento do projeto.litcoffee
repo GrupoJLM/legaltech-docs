@@ -1,0 +1,3 @@
+- trazer todo andamento do projeto
+- abrir o ejaj - verificar a possibilidade de integrar e eproc pje
+-  ver de trabalahar com certificado fisico/ cartao
