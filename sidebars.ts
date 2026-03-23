@@ -5,6 +5,22 @@ const sidebars: SidebarsConfig = {
     'intro',
     {
       type: 'category',
+      label: 'Manual do Usuário',
+      items: [
+        'manual/index',
+        'manual/primeiros-passos',
+        'manual/casos',
+        'manual/sincronizacao',
+        'manual/prazos',
+        'manual/documentos',
+        'manual/certificados',
+        'manual/ia',
+        'manual/notificacoes',
+        'manual/configuracoes',
+      ],
+    },
+    {
+      type: 'category',
       label: 'Arquitetura',
       items: [
         'architecture/overview',
