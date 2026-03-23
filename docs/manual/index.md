@@ -64,7 +64,7 @@ O AltaJuris funciona nos navegadores modernos: Google Chrome, Mozilla Firefox, M
 
 ## Próximos passos
 
-- [Primeiros Passos](./primeiros-passos) — Crie sua conta e configure o escritório
-- [Gestão de Casos](./casos) — Aprenda a gerenciar seus processos
-- [Sincronização com Tribunais](./sincronizacao) — Entenda a integração com eSAJ e DataJud
-- [Controle de Prazos](./prazos) — Configure alertas para nunca perder um prazo
+- [Primeiros Passos](./primeiros-passos.md) — Crie sua conta e configure o escritório
+- [Gestão de Casos](./casos.md) — Aprenda a gerenciar seus processos
+- [Sincronização com Tribunais](./sincronizacao.md) — Entenda a integração com eSAJ e DataJud
+- [Controle de Prazos](./prazos.md) — Configure alertas para nunca perder um prazo
