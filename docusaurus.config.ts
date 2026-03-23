@@ -7,7 +7,7 @@ const config: Config = {
   tagline: 'Plataforma Inteligente para Escritórios de Advocacia',
   favicon: 'img/favicon.ico',
   url: 'https://GrupoJLM.github.io',
-  baseUrl: '/legaltech-docs/',
+  baseUrl: '/',
   organizationName: 'GrupoJLM',
   projectName: 'legaltech-docs',
   trailingSlash: false,
