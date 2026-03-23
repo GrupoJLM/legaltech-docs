@@ -1,12 +1,12 @@
 ---
 sidebar_position: 6
 title: Features Implementadas
-description: Documentação completa de todas as features do LegalTech AI
+description: Documentação completa de todas as features do AltaJuris
 ---
 
 # Features Implementadas
 
-Documentação de todas as funcionalidades do LegalTech AI, organizadas por módulo.
+Documentação de todas as funcionalidades do AltaJuris, organizadas por módulo.
 
 ---
 
@@ -225,7 +225,7 @@ Documentação de todas as funcionalidades do LegalTech AI, organizadas por mód
 
 ### Templates
 - deadline_reminder, document_ready, case_assignment, generic
-- HTML responsivo com header LegalTech AI + footer
+- HTML responsivo com header AltaJuris + footer
 
 ---
 

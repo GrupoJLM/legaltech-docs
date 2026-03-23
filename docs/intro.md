@@ -3,13 +3,13 @@ sidebar_position: 1
 slug: /
 ---
 
-# LegalTech AI
+# AltaJuris
 
 Plataforma inteligente para gestão de escritórios de advocacia, com inteligência artificial integrada.
 
 ## Visão Geral
 
-O LegalTech AI é uma plataforma SaaS multi-tenant que combina:
+O AltaJuris é uma plataforma SaaS multi-tenant que combina:
 
 - **Gestão de Casos** — CRUD completo com timeline, movimentações e status
 - **Prazos Processuais** — Calendário com drag-and-drop, visão semanal/mensal, dias úteis BR

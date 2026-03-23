@@ -3,7 +3,7 @@ import type {Config} from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 
 const config: Config = {
-  title: 'LegalTech AI',
+  title: 'AltaJuris',
   tagline: 'Plataforma Inteligente para Escritórios de Advocacia',
   favicon: 'img/favicon.ico',
   url: 'https://GrupoJLM.github.io',
@@ -34,7 +34,7 @@ const config: Config = {
   ],
   themeConfig: {
     navbar: {
-      title: 'LegalTech AI',
+      title: 'AltaJuris',
       items: [
         {
           type: 'docSidebar',
