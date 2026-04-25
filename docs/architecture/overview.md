@@ -4,7 +4,18 @@ sidebar_position: 1
 
 # Visão Geral da Arquitetura
 
-## Diagrama
+## Diagrama interativo
+
+📁 Baixe o arquivo [`altajuris-topology.drawio`](pathname:///diagrams/altajuris-topology.drawio) e abra em [draw.io](https://app.diagrams.net) para ver a topologia completa, incluindo:
+
+- Frontend (Next.js 15) e Mobile (Flutter)
+- AltaJuris Signer (Electron app local) com WebSocket em `127.0.0.1:7780`
+- AWS Cloud: CloudFront, API Gateway, ECS Fargate, Aurora PostgreSQL, ElastiCache, S3, Bedrock, SQS
+- 4 microsserviços: `api-core`, `doc-service`, `ai-service`, `worker`
+- CI/CD: **AWS CodePipeline + CodeBuild** (Linux + Windows Server 2019)
+- Serviços externos: Asaas, Meta WhatsApp, Tribunais (eSAJ/PJe/DataJud), `esaj-proxy` em GCP Cloud Functions
+
+## Diagrama (texto)
 
 ```
 ┌─────────────┐  ┌──────────────┐  ┌───────────────┐
