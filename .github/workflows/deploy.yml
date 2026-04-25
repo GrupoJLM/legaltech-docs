@@ -22,8 +22,15 @@ jobs:
         with:
           node-version: 20
           cache: npm
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install python-pptx
       - run: npm ci
-      - run: npm run build
+      - name: Build PowerPoint (copies to static/downloads)
+        run: python scripts/build_pptx.py
+      - name: Build Docusaurus site
+        run: npm run build
       - uses: actions/upload-pages-artifact@v3
         with:
           path: build

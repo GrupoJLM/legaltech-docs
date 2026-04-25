@@ -12,7 +12,9 @@
     "serve": "docusaurus serve",
     "write-translations": "docusaurus write-translations",
     "write-heading-ids": "docusaurus write-heading-ids",
-    "typecheck": "tsc"
+    "typecheck": "tsc",
+    "build:pptx": "python3 scripts/build_pptx.py",
+    "build:all": "npm run build && npm run build:pptx && cp -f build/AltaJuris-Apresentacao.pptx build/downloads/ 2>/dev/null || mkdir -p build/downloads && cp build/AltaJuris-Apresentacao.pptx build/downloads/"
   },
   "dependencies": {
     "@docusaurus/core": "3.9.2",

@@ -58,6 +58,12 @@ O AltaJuris está disponível em:
 - **Plataforma web:** [desenvolvimento.altajuris.com.br](https://desenvolvimento.altajuris.com.br)
 - **API:** [api-dev.altajuris.com.br](https://api-dev.altajuris.com.br)
 
+### Apresentação institucional
+
+Baixe a apresentação em PowerPoint (atualizada automaticamente a cada deploy):
+
+- 📊 [**AltaJuris-Apresentacao.pptx**](pathname:///downloads/AltaJuris-Apresentacao.pptx) — deck institucional com todas as funcionalidades atuais
+
 :::info Navegadores suportados
 O AltaJuris funciona nos navegadores modernos: Google Chrome, Mozilla Firefox, Microsoft Edge e Safari. Recomendamos manter o navegador sempre atualizado.
 :::
