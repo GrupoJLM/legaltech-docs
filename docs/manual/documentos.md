@@ -8,6 +8,33 @@ sidebar_position: 6
 
 O AltaJuris permite gerenciar todos os documentos dos seus casos em um só lugar, com classificação automática por inteligência artificial e organização intuitiva.
 
+## Duas seções na página do caso
+
+Cada caso possui **dois cards** separados para documentos, cada um com sua finalidade:
+
+### Processo na Íntegra
+
+Contém **somente as peças oficiais sincronizadas do tribunal** (eSAJ, PJe, DataJud).
+
+- Peças vêm automaticamente da sincronização com os tribunais
+- Não é possível fazer upload manual nesta seção
+- Ícone do martelo (⚖️) dourado identifica visualmente peças do tribunal
+- Ideal para consultar autos oficiais
+
+### Documentos e Anexos
+
+Contém **todos os uploads manuais** do usuário: provas, contratos, procurações, áudios do WhatsApp, fotos e demais anexos relacionados ao caso.
+
+- Upload via drag-and-drop ou botão
+- Classificação automática por IA
+- Solicitação de assinatura digital
+- OCR para extração de texto
+- Todos os formatos aceitos (ver tabela abaixo)
+
+:::tip Por que separar?
+A Dra. Ana (advogada consultora) sugeriu essa divisão para ficar claro o que veio do tribunal (imutável) vs o que foi anexado pelo escritório/cliente. Facilita muito a navegação e a produção de provas.
+:::
+
 ## Upload de documentos
 
 ### Formatos suportados

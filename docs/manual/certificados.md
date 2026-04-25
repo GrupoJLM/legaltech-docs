@@ -54,25 +54,46 @@ Após o upload, o sistema exibe automaticamente:
 ### Pré-requisitos
 
 - Token USB ou smartcard com certificado ICP-Brasil válido
-- Driver do token instalado no computador
-- **Lacuna Web PKI** instalado no navegador
+- Driver do token instalado no computador (SafeSign, SafeNet, Watchdata ou OpenSC)
+- **AltaJuris Signer** instalado no computador (recomendado) **ou** Lacuna Web PKI no navegador
+
+### AltaJuris Signer (recomendado)
+
+O **AltaJuris Signer** é um aplicativo desktop próprio e **gratuito** que acessa o token USB com segurança via WebSocket local. É a forma recomendada de usar certificados A3 no AltaJuris.
+
+**Download:**
+
+- **Windows:** [AltaJuris-Signer-Setup.exe](https://altajuris-signer-downloads.s3.amazonaws.com/AltaJuris-Signer-Setup.exe)
+
+**Como funciona:**
+
+1. Baixe e instale o `AltaJuris Signer` (instalação em poucos cliques)
+2. Após instalar, o app inicia automaticamente e fica na **bandeja do sistema** (canto inferior direito, perto do relógio)
+3. O tooltip do ícone exibe o status: `Aguardando conexão` ou `Conectado`
+4. Quando o AltaJuris acessar o token, o app solicitará o **PIN** numa janela segura
+5. A chave privada **nunca sai do token USB** — apenas os dados públicos são enviados ao servidor
+
+:::tip Por que AltaJuris Signer?
+É um app open-source próprio, sem necessidade de licença paga de terceiros. Instale uma vez e use em todos os tribunais. Funciona com tokens SafeSign, SafeNet, Watchdata, OpenSC e outros.
+:::
 
 ### Passo a passo
 
 1. Conecte o **token USB** ao computador
-2. Acesse **Configurações > Integrações**
-3. Clique em **Nova Credencial de Tribunal**
-4. Selecione o **Sistema** e **Tribunais**
-5. Escolha o modo **Certificado Digital A3 (Token USB)**
-6. Salve a credencial
-7. Na credencial criada, clique em **Conectar Token A3**
-8. O sistema detectará os certificados disponíveis no token
-9. Selecione o certificado desejado
-10. Digite o **PIN do token** quando solicitado
-11. Após verificação, os dados públicos serão registrados
+2. Certifique-se de que o **AltaJuris Signer** está aberto (ícone na bandeja do sistema)
+3. Acesse **Configurações > Integrações** no AltaJuris
+4. Clique em **Nova Credencial de Tribunal**
+5. Selecione o **Sistema** e **Tribunais**
+6. Escolha o modo **Certificado Digital A3 (Token USB)**
+7. Salve a credencial
+8. Na credencial criada, clique em **Conectar Token A3**
+9. O sistema detectará os certificados disponíveis no token
+10. Selecione o certificado desejado
+11. Digite o **PIN do token** quando solicitado pelo AltaJuris Signer
+12. Após verificação, os dados públicos serão registrados
 
-:::info Lacuna Web PKI
-Se o Web PKI não estiver instalado, o sistema exibirá um link para download. A instalação é rápida e gratuita. O Web PKI é necessário apenas para certificados A3.
+:::info Alternativa: Lacuna Web PKI
+Se preferir, o sistema também suporta o **Lacuna Web PKI** (extensão de navegador + componente nativo). Requer licença paga da Lacuna para uso em produção. O AltaJuris detecta automaticamente qual método está disponível e usa o Signer primeiro, com fallback para o Web PKI.
 :::
 
 ## Gerenciamento de certificados
@@ -132,8 +153,10 @@ Após configurar o certificado, o sistema utiliza-o automaticamente para:
 | Problema | Solução |
 |---|---|
 | "Certificado inválido ou senha incorreta" | Verifique se o arquivo `.pfx`/`.p12` não está corrompido e se a senha está correta |
-| "Nenhum certificado detectado" | Verifique se o token USB está conectado e o driver instalado |
-| "Web PKI não instalado" | Clique no link para instalar o Lacuna Web PKI no navegador |
+| "Nenhum certificado detectado" | Verifique se o token USB está conectado, o driver instalado e o AltaJuris Signer aberto |
+| "AltaJuris Signer não está aberto" | Baixe em [altajuris-signer-downloads.s3.amazonaws.com](https://altajuris-signer-downloads.s3.amazonaws.com/AltaJuris-Signer-Setup.exe) e verifique o ícone na bandeja do sistema |
+| Ícone do Signer sem imagem na bandeja | Apenas visual — o app funciona normalmente. Passe o mouse para confirmar o status no tooltip |
+| Dialog trava em "Detectando certificados..." | Clique em **Tentar detectar novamente** ou feche e reabra o dialog após instalar o Signer |
 | "Certificado expirado" | Renove o certificado com sua Autoridade Certificadora |
 | Badge amarelo na validade | O certificado vence em menos de 30 dias — providencie a renovação |
 

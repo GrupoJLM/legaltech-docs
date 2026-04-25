@@ -51,14 +51,29 @@ O **DataJud** é a base de dados do CNJ e cobre todos os tribunais do Brasil. O 
 
 Ao clicar em um caso, você acessa a página de detalhes com várias seções:
 
+### Cabeçalho do caso
+
+No topo, o AltaJuris exibe:
+
+- **Número do processo** como título principal
+- **Linha de partes** abaixo do título: `Autor (azul) vs Réu (vermelho)` — formato que advogados usam no dia a dia para identificar rapidamente o caso
+- Badges: status, tribunal, cliente vinculado, data de criação
+
+Se houver múltiplas partes, mostra a primeira e indica `(+N)` com tooltip das demais. Clicar na linha abre o card **Partes do Processo** na aba Resumo.
+
+:::tip Partes do Processo
+Sugestão da Dra. Ana Botan (advogada consultora): o advogado identifica um caso por "Amanda vs Banco X" muito mais rápido que pelo número do processo. Essa linha foi adicionada justamente pra acelerar a navegação.
+:::
+
 ### Cards de resumo
 
 No topo da página, cards mostram informações rápidas:
 
-- **Número do processo** e tribunal
-- **Status atual** do caso
-- **Quantidade de documentos** associados
-- **Próximo prazo** com countdown visual
+- **Próximo prazo** com countdown visual (destaque vermelho se ≤1 dia)
+- **Último andamento** sincronizado do tribunal
+- **Processo na Íntegra** — peças oficiais sincronizadas do tribunal
+- **Documentos e Anexos** — uploads manuais (provas, contratos, WhatsApp)
+- **Prazos** — total de prazos do caso
 - **Data da última sincronização** com o tribunal
 
 ### Aba Andamentos

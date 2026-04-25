@@ -18,7 +18,12 @@ Este guia irá ajudá-lo a configurar sua conta e começar a usar o AltaJuris em
    - Nome do escritório
    - CNPJ (opcional)
    - E-mail do administrador
-   - Senha (mínimo 8 caracteres, com letras maiúsculas, minúsculas e números)
+   - Senha seguindo as regras exibidas no validador visual:
+     - Mínimo 8 caracteres
+     - Uma letra maiúscula
+     - Uma letra minúscula
+     - Um número
+     - Um caractere especial (`@#$!%&...`)
 4. Confirme o e-mail recebido na sua caixa de entrada
 5. Faça login com suas credenciais
 
@@ -26,7 +31,7 @@ Este guia irá ajudá-lo a configurar sua conta e começar a usar o AltaJuris em
 
 1. Acesse [desenvolvimento.altajuris.com.br](https://desenvolvimento.altajuris.com.br)
 2. Clique em **Sou Cidadão**
-3. Preencha nome, e-mail e senha
+3. Preencha nome, e-mail e senha (siga o validador visual — deve ter 8+ caracteres, com maiúscula, minúscula, número e caractere especial)
 4. Escolha seu plano (Básico, Pro ou Avançado)
 5. Após o registro, você será direcionado automaticamente ao onboarding
 
