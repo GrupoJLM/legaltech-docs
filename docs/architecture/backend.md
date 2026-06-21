@@ -16,7 +16,7 @@ API principal com 21 routers:
 | `deadlines` | CRUD + filters | Prazos processuais |
 | `documents` | list, download | Listagem de documentos |
 | `chat` | messages, SSE stream | Chat IA por caso |
-| `billing` | subscribe, webhook | Stripe billing |
+| `billing` | subscribe, webhook | Asaas billing |
 | `analytics` | by-user, summary | Dashboard analytics |
 | `analytics_personal` | my-stats | Métricas pessoais |
 | `notifications` | list, mark-read, SSE | Notificações real-time |
@@ -51,14 +51,21 @@ Inteligência artificial:
 ### worker
 
 Processador assíncrono de jobs (SQS consumer):
-- `JOB_PROCESS_DOC_EXTRACT` — OCR + chunking + embeddings
-- `JOB_PROCESS_AUDIO_TRANSCRIBE` — Transcrição de áudio
-- `JOB_EXPORT_PDF` — Geração de relatórios PDF
-- `JOB_EXPORT_CHAT_DOCX` — Exportação de chat
-- `JOB_SYNC_TRIBUNAL` — Sincronização com tribunais
-- `JOB_SEND_WHATSAPP` — Envio WhatsApp via Meta API
-- `JOB_SEND_EMAIL` — Envio email via SES
-- `JOB_DEADLINE_REMINDER` — Notificações de prazos
+- `PROCESS_DOC_EXTRACT` — OCR (Textract sync → pypdf → Textract async para PDFs escaneados)
+- `CLASSIFY_DOCUMENT` — Classificação via Claude/Bedrock
+- `INDEX_CHUNKS` — Embeddings + pgvector
+- `DETECT_DEADLINES` — Extração de datas/prazos do texto OCR
+- `PROCESS_AUDIO_TRANSCRIBE` — Transcrição via AWS Transcribe
+- `PROCESS_ZIP` — Extração de ZIPs (WhatsApp export)
+- `SYNC_TRIBUNAL` — Sincronização eSAJ/PJe/DataJud
+- `SYNC_ALL_CASES` — Sincronização em massa
+- `SEND_EMAIL` — Envio via SES (botões com inline styles)
+- `SEND_SIGNATURE_REQUEST` — E-mail de solicitação de assinatura
+- `EXPORT_PDF` — Geração de relatórios PDF
+- `EXPORT_CHAT_DOCX` — Exportação de chat DOCX
+- `DEADLINE_REMINDER` — Notificações de prazos
+- `SEND_WHATSAPP` — Envio via Meta API
+- `HANDLE_DLQ_ALERT` — DLQ: notifica admins + marca documento como ERROR
 
 ## Shared Module
 

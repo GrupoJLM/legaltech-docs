@@ -1,16 +1,16 @@
 ---
 title: Gestão de Documentos
-description: Como fazer upload, organizar e classificar documentos no AltaJuris
+description: Como fazer upload, organizar e extrair texto de documentos no AltaJuris
 sidebar_position: 6
 ---
 
 # Gestão de Documentos
 
-O AltaJuris permite gerenciar todos os documentos dos seus casos em um só lugar, com classificação automática por inteligência artificial e organização intuitiva.
+O AltaJuris permite gerenciar todos os documentos dos seus casos em um só lugar, com extração de texto por OCR, classificação automática por IA e assinatura digital integrada.
 
 ## Duas seções na página do caso
 
-Cada caso possui **dois cards** separados para documentos, cada um com sua finalidade:
+Cada caso possui **dois cards** separados para documentos:
 
 ### Processo na Íntegra
 
@@ -19,141 +19,128 @@ Contém **somente as peças oficiais sincronizadas do tribunal** (eSAJ, PJe, Dat
 - Peças vêm automaticamente da sincronização com os tribunais
 - Não é possível fazer upload manual nesta seção
 - Ícone do martelo (⚖️) dourado identifica visualmente peças do tribunal
-- Ideal para consultar autos oficiais
 
 ### Documentos e Anexos
 
-Contém **todos os uploads manuais** do usuário: provas, contratos, procurações, áudios do WhatsApp, fotos e demais anexos relacionados ao caso.
+Contém **todos os uploads manuais**: provas, contratos, procurações, áudios do WhatsApp, fotos e demais anexos.
 
-- Upload via drag-and-drop ou botão
+- Upload via drag-and-drop ou botão (até 100MB por arquivo)
+- OCR automático para extração de texto
 - Classificação automática por IA
-- Solicitação de assinatura digital
-- OCR para extração de texto
-- Todos os formatos aceitos (ver tabela abaixo)
-
-:::tip Por que separar?
-A Dra. Ana (advogada consultora) sugeriu essa divisão para ficar claro o que veio do tribunal (imutável) vs o que foi anexado pelo escritório/cliente. Facilita muito a navegação e a produção de provas.
-:::
+- Solicitação de assinatura digital por e-mail
 
 ## Upload de documentos
 
 ### Formatos suportados
 
-| Formato | Extensão | Observação |
-|---|---|---|
-| PDF | `.pdf` | Formato mais comum para documentos jurídicos |
-| Word | `.docx`, `.doc` | Petições, minutas, contratos |
-| Imagens | `.jpg`, `.jpeg`, `.png` | Fotos de documentos, comprovantes |
-| Planilhas | `.xlsx`, `.xls` | Cálculos, demonstrativos financeiros |
-
-:::info Limite de tamanho
-Cada arquivo pode ter no máximo **100 MB**. Para arquivos maiores, considere dividir o documento ou compactá-lo.
-:::
+| Formato | Extensão |
+|---|---|
+| PDF | `.pdf` |
+| Word | `.docx`, `.doc` |
+| Imagens | `.jpg`, `.jpeg`, `.png`, `.tiff` |
+| Áudio | `.ogg`, `.mp3`, `.wav` |
+| Texto | `.txt`, `.csv` |
+| ZIP | `.zip` |
 
 ### Como fazer upload
 
-1. Acesse o caso desejado
-2. Vá até a aba **Documentos**
-3. Clique em **Enviar Documento** ou arraste o arquivo para a área de upload
-4. Selecione um ou mais arquivos
-5. Aguarde o envio e processamento
-6. O documento aparecerá na lista com a classificação automática
+1. Acesse o caso desejado → clique em **Documentos e Anexos**
+2. Arraste o arquivo para a área de upload ou clique em **selecione**
+3. Aguarde a barra de progresso completar
+4. O documento aparece na lista com status **Aguardando**
 
-### Upload múltiplo
+### Status do documento
 
-Você pode enviar vários documentos de uma vez:
-
-1. Na área de upload, selecione múltiplos arquivos (segure Ctrl/Cmd ao clicar)
-2. Ou arraste vários arquivos de uma vez para a área de upload
-3. Todos os arquivos serão enviados e processados em paralelo
-
-## Classificação automática por IA
-
-Ao fazer upload de um documento, a inteligência artificial do AltaJuris analisa o conteúdo e classifica automaticamente em categorias:
-
-| Classificação | Descrição |
+| Status | Significado |
 |---|---|
-| **Petição** | Petições iniciais, contestações, réplicas |
-| **Decisão** | Sentenças, acórdãos, decisões interlocutórias |
-| **Contrato** | Contratos, aditivos, distratos |
-| **Procuração** | Procurações e substabelecimentos |
-| **Comprovante** | Comprovantes de pagamento, recibos |
-| **Certidão** | Certidões e atestados |
-| **Laudo** | Laudos periciais, pareceres técnicos |
-| **Correspondência** | E-mails, ofícios, notificações |
-| **Outro** | Documentos não classificados |
+| ⏳ Aguardando | Recebido, aguardando processamento |
+| 🔄 Processando | OCR em execução (spinner animado) |
+| ✅ Pronto | Texto extraído e indexado com sucesso |
+| ❌ Erro | Falha no processamento — clique em Reprocessar |
 
-A classificação é exibida como um **badge colorido** ao lado do nome do arquivo.
-
-:::tip Dica
-A classificação automática tem alta precisão, mas pode ser editada manualmente. Clique no badge de classificação para alterá-lo.
+:::tip
+O badge **Processando** mostra um spinner animado enquanto o sistema trabalha. O processamento leva entre 15 e 60 segundos dependendo do tamanho e tipo do arquivo.
 :::
 
-## Download de documentos do tribunal
+## Ações disponíveis por documento
 
-Para tribunais com integração eSAJ, documentos podem ser baixados diretamente:
+Cada linha da tabela possui os seguintes botões (com tooltip ao passar o mouse):
 
-1. Na aba **Andamentos** do caso, localize o andamento com documento anexo
-2. Clique no ícone de **download** ao lado do andamento
-3. O documento será baixado e salvo automaticamente na aba Documentos do caso
+| Ícone | Ação | Descrição |
+|---|---|---|
+| ⬇️ | **Baixar** | Download do arquivo original do S3 |
+| 👁️ | **Ver texto extraído** | Abre o texto obtido pelo OCR em um dialog |
+| ✒️ | **Solicitar assinatura** | Envia e-mail de assinatura para um signatário |
+| 🔄 | **Reprocessar** | Reenfileira o OCR (visível apenas em status Erro) |
 
-:::warning Certificado digital necessário
-O download de documentos de tribunais requer um **certificado digital** configurado. Veja [Certificados Digitais](./certificados) para instruções de configuração.
+:::info
+O botão **Reprocessar** tem cooldown de 30 segundos após cada clique para evitar sobrecarga.
 :::
 
-## Visualização e organização
+## OCR — Extração de texto
 
-### Visualizar documento
+### Como funciona
 
-1. Na lista de documentos, clique no nome do arquivo
-2. O documento será aberto no visualizador integrado (para PDFs e imagens)
-3. Para outros formatos, o download será iniciado automaticamente
+Ao fazer upload, o AltaJuris extrai automaticamente o texto de cada arquivo:
 
-### Organizar documentos
+1. **PDF digital** (com texto embutido) → extração instantânea via pypdf
+2. **Imagem** (JPG, PNG, TIFF) → OCR via AWS Textract
+3. **PDF escaneado** (foto de documento) → Textract assíncrono com OCR página por página
 
-Os documentos podem ser organizados por:
+### Ver texto extraído
 
-- **Classificação** — Agrupa por tipo (petição, decisão, contrato, etc.)
-- **Data de envio** — Ordena pela data de upload
-- **Nome** — Ordena alfabeticamente
-- **Tamanho** — Ordena por tamanho do arquivo
+1. Clique no ícone 👁️ ao lado do documento com status **Pronto**
+2. O botão mostrará um spinner enquanto carrega
+3. O texto aparece em um dialog com scroll
 
-### Renomear documento
-
-1. Clique no ícone de **editar** (lápis) ao lado do documento
-2. Digite o novo nome
-3. Pressione Enter ou clique fora para confirmar
-
-### Excluir documento
-
-1. Clique no ícone de **excluir** (lixeira) ao lado do documento
-2. Confirme a exclusão no diálogo
-
-:::danger Atenção
-A exclusão de documentos é **permanente** e não pode ser desfeita. Certifique-se de que o documento não é mais necessário antes de excluí-lo.
+:::note
+Se o documento for uma imagem sem texto legível (baixa resolução, foto borrada) ou um PDF com apenas imagens, o dialog exibirá a mensagem *"Nenhum texto foi identificado neste documento"*.
 :::
+
+## Assinatura digital
+
+### Solicitar assinatura por e-mail
+
+1. Clique no ícone ✒️ ao lado do documento
+2. Informe o **e-mail do signatário** no dialog
+3. Clique em **Enviar Solicitação**
+4. O signatário receberá um e-mail AltaJuris com botão **Assinar Documento** (válido por 7 dias)
+
+### Acompanhar status de assinatura
+
+Cada linha mostra um badge colorido com o status das assinaturas:
+
+| Badge | Significado |
+|---|---|
+| 🕐 `1 pendente` (amarelo) | Signatário ainda não assinou |
+| ✅ `Assinado` (verde) | Todas as assinaturas concluídas |
+| ✒️ `Assinaturas` (neutro) | Detalhes disponíveis (clique para expandir) |
+
+Clique no badge ou no chevron ▼ para expandir o painel de assinaturas com detalhe de cada signatário (e-mail, data de assinatura, status).
+
+## Tipo do arquivo
+
+A coluna **Tipo** mostra um badge colorido por formato:
+
+| Badge | Formato |
+|---|---|
+| 🔴 PDF | Documentos PDF |
+| 🔵 Imagem | JPG, PNG, TIFF |
+| 🟣 Áudio | MP3, OGG, WAV |
+| 🟠 Vídeo | MP4, AVI |
+| 🔵 Word | DOCX, DOC |
+| ⬜ ZIP | Arquivos compactados |
+| ⬜ Texto | TXT, CSV |
 
 ## Upload de conversas do WhatsApp
 
-O AltaJuris permite importar conversas do WhatsApp como evidências:
-
-1. No WhatsApp, exporte a conversa desejada (Configurações da conversa > Exportar conversa > Incluir mídia)
-2. O WhatsApp gerará um arquivo **ZIP** contendo o chat e as mídias
-3. No caso do AltaJuris, acesse **Upload WhatsApp**
-4. Faça upload do arquivo ZIP
-5. O sistema processará automaticamente:
-   - Mensagens de texto (com data, hora e remetente)
-   - Fotos e imagens
-   - Áudios (com transcrição quando disponível)
-   - Vídeos
-6. As mensagens estarão disponíveis no **Visualizador de WhatsApp** do caso
-
-:::info Formatos suportados
-O parser de WhatsApp suporta tanto o formato de exportação do **iOS** quanto do **Android**.
-:::
+1. No WhatsApp, exporte a conversa (Configurações > Exportar conversa > Incluir mídia)
+2. Faça upload do arquivo **ZIP** gerado na seção **Documentos e Anexos**
+3. O sistema processará automaticamente mensagens, fotos, áudios e vídeos
+4. As mensagens ficarão disponíveis na aba **WhatsApp** do caso
 
 ## Próximos passos
 
-- [Recursos de IA](./ia) — Use a IA para analisar seus documentos
+- [Recursos de IA](./ia) — Análise inteligente de documentos
 - [Gestão de Casos](./casos) — Vincule documentos aos seus casos
-- [Certificados Digitais](./certificados) — Habilite o download de documentos dos tribunais
+- [Certificados Digitais](./certificados) — Habilite o download de peças dos tribunais
